@@ -1,16 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import Login from "pages/login/index.js";
+import Home from "pages/home/index.js";
 function App() {
   return (
-    <div className="container">
-      <div className="loginDiv">
-        <h1 className="loginTitle">Login</h1>
-        <input className="usernameInput" placeholder="Username" />
-        <input className="passInput" placeholder="Passsword" type="password" />
-        <button className="loginBtn">Login</button>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
