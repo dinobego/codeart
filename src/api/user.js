@@ -1,24 +1,43 @@
 import customFetch from "utils/customFetch";
 
-export async function login(username, password) {
-  try {
-    const response = await customFetch("/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    });
+export async function login(payload) {
+  const response = await customFetch("/user/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      requestBody: payload
+    }),
+  });
 
-    const data = await response.json();
+  const data = await response.json();
 
-    console.log(data, response);
-  } catch (e) {
-    console.log(e);
-  }
+  return { data, response };
+}
 
-  return {};
+export async function logout() {
+  const response = await customFetch("/user/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  return { data, response };
+}
+
+export async function checkSession() {
+  const response = await customFetch("/forest/employee/getEmployees", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  return { data, response };
 }

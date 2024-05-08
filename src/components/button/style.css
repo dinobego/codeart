@@ -1,0 +1,21 @@
+.button {
+  font-family: Ubuntu-Bold;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  line-height: 1.2;
+  text-transform: uppercase;
+  padding: 15px 10px;
+  width: 100%;
+  background-color: #827ffe;
+  border-radius: 3px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #403866;
+}
