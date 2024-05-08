@@ -1,12 +1,18 @@
 header {
-  width: 100%;
+  justify-content: space-between;
   display: flex;
   padding: 10px 20px;
-  justify-content: center;
   gap: 10px;
   align-items: center;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #827ffe;
 }
 .logoutBtn {
   width: 100px;
+}
+.h1 {
+  text-align: center;
+  color: #827ffe;
+}
+.pHeader {
+  color: #827ffe;
 }

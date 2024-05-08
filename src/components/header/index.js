@@ -1,37 +1,40 @@
-import { useContext } from "react"
+import { useContext } from "react";
 
-import Button from "components/button"
+import Button from "components/button";
 
-import notify from "utils/notify"
+import notify from "utils/notify";
 
-import { UserContext } from "context/user"
+import { UserContext } from "context/user";
 
 import { logout } from "api/user";
 
-import "./style.css"
+import "./style.css";
 
 export default function Header() {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   const logoutMe = async () => {
     try {
-      const { data } = await logout()
+      const { data } = await logout();
 
-      if(data.success || data.responseCodes?.[0]?.responseKey === "NO_SESSION") {
-        window.location.href = "/"
+      if (
+        data.success ||
+        data.responseCodes?.[0]?.responseKey === "NO_SESSION"
+      ) {
+        window.location.href = "/";
       } else {
-        notify("Something went wrong", "error")
+        notify("Something went wrong", "error");
       }
-    } catch(e) {
-      notify("Something went wrong", "error")
+    } catch (e) {
+      notify("Something went wrong", "error");
     }
-  }
+  };
 
   return (
     <header>
-      <div>Hello {user.username}</div>
+      <p className="pHeader">Hello, {user.username}</p>
 
       <Button text="Logout" onClick={logoutMe} className="logoutBtn" />
     </header>
-  )
+  );
 }
